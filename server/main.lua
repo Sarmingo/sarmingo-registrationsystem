@@ -15,9 +15,9 @@ Citizen.CreateThread(function()
 	local count = MySQL.Sync.fetchScalar("SELECT COUNT(*) FROM owned_vehicles WHERE `registered` = 'yes'")
   
 	if count > 0 then 
-	print("[^1"..GetCurrentResourceName().."^7] Skripta uspijesno pokrenuta | Ucitano registrovanih : " ..count.. " automobila")
+	print("[^1"..GetCurrentResourceName().."^7] Script successfully run | Loaded registered : " ..count.. " vehicles")
 	else 
-	  print("[^1"..GetCurrentResourceName().."^7] Skripta uspijesno pokrenuta | Nema registrovanih vozila")
+	  print("[^1"..GetCurrentResourceName().."^7] Script successfully run | There are no registered vehicles")
 	end
   end)
 
