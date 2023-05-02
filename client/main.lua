@@ -9,24 +9,6 @@ AddEventHandler("onResourceStop", function(res)
   end
 end)
 
-RegisterNetEvent('esx:playerLoaded')
-AddEventHandler('esx:playerLoaded', function(xPlayer)
-	ESX.PlayerData = xPlayer
-	ESX.PlayerLoaded = true
-        displayMetadata()
-end)
-
-function displayMetadata()
-    exports.ox_inventory:displayMetadata({
-        vlasnik  = Config.Notify.Owner,
-        tablice = Config.Notify.Plate,
-        dani    = Config.Notify.Days2,
-        datum  = Config.Notify.Date,
-        istek    = Config.Notify.Expiration,
-    })
-end
-
-
 Citizen.CreateThread(function()
 	for _,v in pairs(Config.Ped) do
 	  RequestModel(GetHashKey(v.model))
@@ -109,5 +91,5 @@ end
 end)
 
 RegisterNetEvent('registruj', function(sve)
-TriggerServerEvent('dajitem', sve.dani, sve.tablice)
+TriggerServerEvent('dajitem', sve.dani, sve.tablice, sve.cijena, sve.money)
 end)
