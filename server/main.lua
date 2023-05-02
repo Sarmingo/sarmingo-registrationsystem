@@ -1,12 +1,13 @@
 lib.locale()
 
-RegisterServerEvent('dajitem', function(dani, tablice)
+RegisterServerEvent('dajitem', function(dani, tablice, price, money)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	MySQL.Async.execute("UPDATE owned_vehicles SET date_expiried = @date_expiried, registered = 'yes' WHERE plate = @plate", {
 		['@date_expiried'] = os.date("%Y-%m-%d", os.time() + (dani * 24 * 60 * 60)),
 		['@plate'] = tablice
 	}, function()
 	end)
+	xPlayer.removeAccountMoney(money, price)
 	xPlayer.addInventoryItem(Config.Item, 1)
 end)
 
