@@ -4,19 +4,17 @@ lua54 'yes'
 author 'Sarmingooo#0850'
 
 shared_script {
+    '@ox_lib/init.lua',
     '@es_extended/imports.lua',
+    'shared/config.lua'
+}
+
+server_scripts {
     '@oxmysql/lib/MySQL.lua',
-    'shared/*.lua',
-    '@ox_lib/init.lua'
+    'server/main.lua'
 }
 
-server_scripts{
-'server/*.lua'
-}
-
-client_scripts{
-'client/*.lua'
-}
+client_script 'client/main.lua'
 
 dependencies {
     'ox_lib',
