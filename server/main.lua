@@ -1,18 +1,18 @@
-if not Config.NewLegacy then 
-ESX = nil
+if not Config.NewLegacy then
+    ESX = nil
 
-TriggerEvent('esx:getSharedObject', function(obj)
-            ESX = obj
-        end)
+    TriggerEvent('esx:getSharedObject', function(obj)
+        ESX = obj
+    end)
 end
 RegisterServerEvent('dajitem', function(dani, tablice, price, money)
     local updateQuery = 'UPDATE owned_vehicles SET date_expiried = ?, registered = ? WHERE plate = ?'
     local updateRegistration = MySQL.update.await(updateQuery,
-    {
-        os.date('%Y-%m-%d', os.time() + (dani * 24 * 60 * 60)),
-        'yes',
-        tablice
-    })
+        {
+            os.date('%Y-%m-%d', os.time() + (dani * 24 * 60 * 60)),
+            'yes',
+            tablice
+        })
 
     if not updateRegistration then
         print('[^1' .. GetCurrentResourceName() .. '^7] Failed to update registration for plate: ' .. tablice)
