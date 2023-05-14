@@ -1,4 +1,5 @@
 RegisterServerEvent('dajitem', function(dani, tablice, price, money)
+            local xPlayer = ESX.GetPlayerFromId(source)
     local updateQuery = 'UPDATE owned_vehicles SET date_expiried = ?, registered = ? WHERE plate = ?'
     local updateRegistration = MySQL.update.await(updateQuery,
         {
@@ -11,8 +12,6 @@ RegisterServerEvent('dajitem', function(dani, tablice, price, money)
         print('[^1' .. GetCurrentResourceName() .. '^7] Failed to update registration for plate: ' .. tablice)
         return
     end
-
-    local xPlayer = ESX.GetPlayerFromId(source)
 
     xPlayer.removeAccountMoney(money, price)
 
