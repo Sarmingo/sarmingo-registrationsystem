@@ -1,10 +1,3 @@
-if not Config.NewLegacy then
-    ESX = nil
-
-    TriggerEvent('esx:getSharedObject', function(obj)
-        ESX = obj
-    end)
-end
 RegisterServerEvent('dajitem', function(dani, tablice, price, money)
     local updateQuery = 'UPDATE owned_vehicles SET date_expiried = ?, registered = ? WHERE plate = ?'
     local updateRegistration = MySQL.update.await(updateQuery,
