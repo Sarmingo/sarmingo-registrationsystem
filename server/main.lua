@@ -1,4 +1,4 @@
-if Config.NewLegacy then 
+if not Config.NewLegacy then 
 ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj)
