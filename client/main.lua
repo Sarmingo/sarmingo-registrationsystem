@@ -1,4 +1,4 @@
-if Config.NewLegacy then
+if not Config.NewLegacy then
     ESX = nil
 Citizen.CreateThread(function()
             while ESX == nil do
