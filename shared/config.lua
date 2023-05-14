@@ -1,7 +1,6 @@
 Config = {}
 
 Config.OxInventory = false -- put true if you using ox inventory
-Config.NewLegacy = true -- put true if you using newest esx core or put false if you using old
 
 Config.Ped = {
     {
