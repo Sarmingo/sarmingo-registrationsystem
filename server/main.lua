@@ -20,13 +20,7 @@ RegisterServerEvent('dajitem', function(dani, tablice, price, money)
         return
     end
 
-    exports.ox_inventory:AddItem(source, Config.Item, 1, {
-        vlasnik = xPlayer.getName(),
-        tablice = tablice,
-        dani = dani,
-        datum = os.date('%Y-%m-%d'),
-        istek = os.date('%Y-%m-%d', os.time() + (dani * 24 * 60 * 60))
-    })
+        exports.ox_inventory:AddItem(xPlayer.source, Config.Item, 1, {vlasnik = xPlayer.getName(), tablice = tablice, dani = dani, datum = os.date('%Y-%m-%d'), istek = os.date('%Y-%m-%d', os.time() + (dani * 24 * 60 * 60))})
 end)
 
 CreateThread(function()
