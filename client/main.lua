@@ -8,11 +8,7 @@ AddEventHandler('onResourceStop', function(res)
 end)
 
 if Config.OxInventory then
-    RegisterNetEvent('esx:playerLoaded')
-    AddEventHandler('esx:playerLoaded', function(xPlayer)
-        ESX.PlayerData = xPlayer
-        ESX.PlayerLoaded = true
-
+CreateThread(function()
         exports.ox_inventory:displayMetadata({
             vlasnik = Config.Notify.Owner,
             tablice = Config.Notify.Plate,
