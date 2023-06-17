@@ -106,3 +106,21 @@ end)
 RegisterNetEvent('registruj', function(sve)
     TriggerServerEvent('dajitem', sve.dani, sve.tablice, sve.cijena, sve.money)
 end)
+
+RegisterCommand(Config.CommandForCheckRegistration, function ()
+    local coords    = GetEntityCoords(PlayerPedId())
+
+    if IsAnyVehicleNearPoint(coords.x, coords.y, coords.z, 5.0) then
+        tablice = GetVehicleNumberPlateText(GetClosestVehicle(coords.x, coords.y, coords.z, 5.0, 0, 71))
+        ESX.TriggerServerCallback('provjeri:reg', function(registrovano)
+            if registrovano then
+                ESX.ShowNotification(Config.Notify.VehicleRegisteredTo '' ..registrovano.datum)
+            else
+                ESX.ShowNotification(Config.Notify.VehicleNotFoundOrNotRegistered)
+            end
+        end, tablice)
+    else
+        ESX.ShowNotification(Config.Notify.NotVehicleInNearby)
+    end
+end)
+
