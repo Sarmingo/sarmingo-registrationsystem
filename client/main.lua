@@ -114,7 +114,7 @@ RegisterCommand(Config.CommandForCheckRegistration, function ()
         tablice = GetVehicleNumberPlateText(GetClosestVehicle(coords.x, coords.y, coords.z, 5.0, 0, 71))
         ESX.TriggerServerCallback('provjeri:reg', function(registrovano)
             if registrovano then
-                ESX.ShowNotification(Config.Notify.VehicleRegisteredTo '' ..registrovano.datum)
+                ESX.ShowNotification(Config.Notify.VehicleRegisteredTo.. '' ..registrovano.datum)
             else
                 ESX.ShowNotification(Config.Notify.VehicleNotFoundOrNotRegistered)
             end
