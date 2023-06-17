@@ -23,6 +23,20 @@ RegisterServerEvent('dajitem', function(dani, tablice, price, money)
         exports.ox_inventory:AddItem(xPlayer.source, Config.Item, 1, {vlasnik = xPlayer.getName(), tablice = tablice, dani = dani, datum = os.date('%Y-%m-%d'), istek = os.date('%Y-%m-%d', os.time() + (dani * 24 * 60 * 60))})
 end)
 
+ESX.RegisterServerCallback('provjeri:reg', function(source, cb, tablice)
+    MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE plate = @tablice AND registered = "yes"', {
+        ['@tablice'] = tablice
+    }, function(result)
+        if result and #result > 0 then
+            local dateExpired = os.date('%Y-%m-%d', tonumber(result[1].date_expiried) / 1000)
+            cb({datum = dateExpired})
+        else
+            cb(false)
+        end
+    end)
+end)
+
+
 CreateThread(function()
     local registeredVehiclesCount = MySQL.scalar.await('SELECT COUNT(*) FROM owned_vehicles WHERE `registered` = ?', {'yes'})
     registeredVehiclesCount = registeredVehiclesCount and tonumber(registeredVehiclesCount) or 0
