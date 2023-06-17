@@ -47,6 +47,12 @@ Config.Notify = {
     NotValidTitle = 'Not valid!',
     NotValidDesc = 'This car is not valid for registration!',
     NotValidType = 'error',
+    
+    DontHaveMoney = 'You dont have enough money!',
 
-    DontHaveMoney = 'You dont have enough money!'
+    VehicleRegisteredTo = 'The vehicle is registered. Expiration date : ',
+    VehicleNotFoundOrNotRegistered = 'Vehicle not found or not registered',
+    NotVehicleInNearby = 'There are no vehicles nearby'
 }
+
+Config.CommandForCheckRegistration = 'checkreg'
