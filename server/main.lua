@@ -8,7 +8,7 @@ RegisterServerEvent('dajitem', function(dani, tablice, price, money)
             tablice
         })
 
-    if not updateRegistration and Config.Debug then
+    if not updateRegistration then
         print('[^1' .. GetCurrentResourceName() .. '^7] Failed to update registration for plate: ' .. tablice)
         return
     end
@@ -67,7 +67,7 @@ end)
 CreateThread(function()
     while true do
         local success = MySQL.update.await('UPDATE owned_vehicles SET registered = ?, date_expiried = ? WHERE registered != ? AND date_expiried IS NOT NULL AND date_expiried <= CURDATE()', {'not', nil, 'not'})
-        if success and Config.Debug then
+        if success then
             print('[^1' .. GetCurrentResourceName() .. '^7] Successfully updated.')
         end
         Wait(10000)
