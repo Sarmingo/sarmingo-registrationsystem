@@ -2,8 +2,6 @@ Config = {}
 
 Config.OxInventory = false -- put true if you using ox inventory
 
-Config.Debug = false
-
 Config.Ped = {
     {
         model = 's_m_m_dockwork_01',
