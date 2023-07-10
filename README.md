@@ -1,3 +1,3 @@
 # sarmingo-registrationsystem
 Registration System that works with ox lib, ox inventory and oxmysql
-![Screenshot (14)](https://user-images.githubusercontent.com/78432708/234818881-10e56f0d-0712-4961-a20b-8b48c7a8f858.png)
+![registracija](https://github.com/Sarmingo/sarmingo-registrationsystem/assets/78432708/22c56be3-86a2-4519-a261-651ea1b0f4c3)
